@@ -1,15 +1,37 @@
 import React from 'react';
-import { Router, Route, Switch } from 'dva/router';
-import IndexPage from './routes/IndexPage';
+import {
+  Router,
+  Route,
+  Redirect,
+  Switch,
+} from 'dva/router';
+import dynamic from 'dva/dynamic';
 
-function RouterConfig({ history }) {
+export default ({ history, app }) => {
+  const GlobalLayout = dynamic({
+    app: app,
+    models: () => [
+      import('./layouts/models/layouts'),
+    ],
+    component: () => import('./layouts'),
+  });
+  const IndexPage = dynamic({
+    app: app,
+    models: () => [
+      import('./models/example'),
+    ],
+    component: () => import('./routes/IndexPage'),
+  });
   return (
     <Router history={history}>
       <Switch>
-        <Route path="/" exact component={IndexPage} />
+        <GlobalLayout>
+          <Switch>
+            <Route path="/index" exact component={IndexPage}></Route>
+            <Redirect to="/index" />
+          </Switch>
+        </GlobalLayout>
       </Switch>
     </Router>
   );
-}
-
-export default RouterConfig;
+};
