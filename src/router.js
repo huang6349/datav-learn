@@ -15,20 +15,20 @@ export default ({ history, app }) => {
     ],
     component: () => import('./layouts'),
   });
-  const IndexPage = dynamic({
+  const GridPage = dynamic({
     app: app,
     models: () => [
-      import('./models/example'),
+      import('./routes/grid/models/grid'),
     ],
-    component: () => import('./routes/IndexPage'),
+    component: () => import('./routes/grid'),
   });
   return (
     <Router history={history}>
       <Switch>
         <GlobalLayout>
           <Switch>
-            <Route path="/index" exact component={IndexPage}></Route>
-            <Redirect to="/index" />
+            <Route path="/grid" exact component={GridPage}></Route>
+            <Redirect to="/grid" />
           </Switch>
         </GlobalLayout>
       </Switch>

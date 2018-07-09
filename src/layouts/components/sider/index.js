@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   Layout,
   Menu,
+  Icon,
 } from 'antd';
 
 import styles from './styles.css';
@@ -21,7 +22,9 @@ class SiderView extends Component {
     return (
       <Layout.Sider width={width}>
         <Menu className={styles['menu']} mode="inline" selectedKeys={[pathname]} onClick={onClick}>
-          <Menu.Item key="/index">首页</Menu.Item>
+          <Menu.Item key="/grid">
+            <Icon type="profile" />&nbsp;布局模型
+          </Menu.Item>
         </Menu>
       </Layout.Sider>
     );

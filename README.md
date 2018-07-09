@@ -10,6 +10,10 @@
 
 - [初始化项目](https://github.com/huang6349/dva-learn)
 
+## 自适应流布局
+
+![预览图](./preview/grid.png)
+
 ## 相关教程
 
 - [官网 - DvaJS](https://dvajs.com/)
