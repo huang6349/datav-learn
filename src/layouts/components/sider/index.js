@@ -25,6 +25,9 @@ class SiderView extends Component {
           <Menu.Item key="/grid">
             <Icon type="profile" />&nbsp;布局模型
           </Menu.Item>
+          <Menu.Item key="/echarts">
+            <Icon type="pie-chart" />&nbsp;Echarts
+          </Menu.Item>
         </Menu>
       </Layout.Sider>
     );

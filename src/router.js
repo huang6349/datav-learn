@@ -22,12 +22,20 @@ export default ({ history, app }) => {
     ],
     component: () => import('./routes/grid'),
   });
+  const EchartsPage = dynamic({
+    app: app,
+    models: () => [
+      import('./routes/echarts/models/echarts'),
+    ],
+    component: () => import('./routes/echarts'),
+  });
   return (
     <Router history={history}>
       <Switch>
         <GlobalLayout>
           <Switch>
             <Route path="/grid" exact component={GridPage}></Route>
+            <Route path="/echarts" exact component={EchartsPage}></Route>
             <Redirect to="/grid" />
           </Switch>
         </GlobalLayout>

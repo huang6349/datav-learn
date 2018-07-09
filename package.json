@@ -10,6 +10,8 @@
     "antd": "^3.6.5",
     "babel-plugin-import": "^1.8.0",
     "dva": "^2.1.0",
+    "echarts": "^4.1.0",
+    "echarts-for-react": "^2.0.13",
     "lodash": "^4.17.10",
     "normalize.css": "^8.0.0",
     "prop-types": "^15.6.2",
