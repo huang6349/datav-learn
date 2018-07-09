@@ -31,11 +31,14 @@ class LayoutView extends Component {
       /** 元素内容 */
       dom: PropTypes.element.isRequired,
     })),
+    /** 是否为设计模式[只有在设计模式下，元素才可以进行拖拽] */
+    isDesign: PropTypes.bool,
     /** 可视化图形的元素位置发生变化的回调函数 */
     onLayoutChange: PropTypes.func,
   }
   static defaultProps = {
     layouts: [],
+    isDesign: false,
   }
   /**
    * 新增一个布局
@@ -55,7 +58,7 @@ class LayoutView extends Component {
     };
   }
   _items() {
-    const { layouts } = this.props;
+    const { layouts, isDesign } = this.props;
     return map(layouts, (item, i) => {
       const { position, dom } = item;
       const InternalComponent = (props) => {
@@ -65,7 +68,7 @@ class LayoutView extends Component {
         });
       };
       return (
-        <section className={styles['layout']} key={i} data-grid={position}>
+        <section className={styles['layout']} key={i} data-grid={{ ...position, static: !isDesign }}>
           <ResizeDetector handleHeight={true} handleWidth={true}>
             <InternalComponent />
           </ResizeDetector>

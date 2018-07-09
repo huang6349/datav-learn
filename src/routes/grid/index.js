@@ -18,7 +18,7 @@ function GridPage({ dispatch, grid }) {
         <GridLayout layouts={map(layouts, (item, i) => {
           item.dom = <GridLayoutExample message={`元素序号：${i}`} />;
           return item;
-        })}></GridLayout>
+        })} isDesign={true}></GridLayout>
       </Layout.Content>
     </Layout>
   );
